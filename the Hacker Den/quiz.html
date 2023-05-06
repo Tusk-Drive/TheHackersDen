@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Cyber Quiz
+    </title>
+    <link rel="stylesheet" href="hackerden.css">
+    <div class="navibar"><!--This is the start of the navi bar class-->
+        <nav>
+            <a class="active"></a>
+            <a href="Homepage.html">Home</a>
+            <a href="books.html">Books</a>
+            <a href="tools.html">Tools</a>
+            <a href="Vulnerabilities.html">Vulnerabilities</a>
+            <a href="goodinfo.html">Good to Know info</a>
+            <a href="youtubeRE.html">Great youtube resources</a>
+            <a href="certs.html"> Certifacations to work towards</a>
+            <a href="quiz.html"> Try My Cyber Quiz</a>
+        </nav>
+    </div><!--This is the end of the navi bar class-->
+</head>
+
+<body>
+    <div class="tooltitle"><!--start of title tool class-->
+        <div class="ct"><!--Ct class for the middle of the box look in headder-->
+            <div class="titleimg"> <!--This is the title image class-->
+                <img src="brokenmark.gif" alt="Error" style="height: 150px; width: 100%;">
+            </div> <!--End of the title image class-->
+            <div class="titleimg2"><!--Start of the second img class-->
+                <img src="brokenmark.gif" alt="Error" style="height: 150px; width: 90%">
+            </div><!--End of the second img class-->
+            <h1 style="color: rgb(10, 10, 10);">The Hackers Den</h1>
+            <h2 style="color:black">Take this Quiz to test your Cyber knowledge </h2>
+            <p style="color:black">
+                00100000 01010001 01110101 01101001 01111010
+            </p>
+        </div><!--end of the ct class-->
+        <div class="quizint"><!--Start of the instructions box for the quiz-->
+            <h2>Quiz Instructions</h2>
+            <hr>
+            <p>
+                1. Take the quiz by selecting the answer you think is best. <br>
+                2. Click the "click to see grade below" button to see how you did.<br>
+                3. Take the quiz as many times as you see fit.
+            </p>
+
+        </div><!--End of the instruction box for the quiz-->
+
+        <div class="quizbox"> <!--This is the start of the first quizbox class-->
+            <h2 style="color: black;">Take this quiz to see how well you know Cyber Security </h2>
+            <hr><!--Start of the script for the first question-->
+            <!---<img src="windows.webp" alt="Error" style="height: 150px; width: 25%;">-->
+            <p>1) What does Malware mean?</p>
+            <input type="radio" name="q1" value="a">a) Malicious Software <br>
+            <input type="radio" name="q1" value="b">b) Evil Software<br>
+            <input type="radio" name="q1" value="c">c) Mail Software<br>
+
+            <p>2) What does the term RAT mean?</p>
+            <input type="radio" name="q2" value="a">a) Regulatory Access Terminal<br>
+            <input type="radio" name="q2" value="b">b) Random Access Timeserver<br>
+            <input type="radio" name="q2" value="c">c) Remote Access Tool<br>
+
+
+            <p>3) The First Worm virus ever created is called the Morris worm</p>
+            <input type="radio" name="q3" value="a">a) True<br>
+            <input type="radio" name="q3" value="b">b) False<br>
+
+            <p>4) The Malware type known as Ransomware encrypts your files and holds them hostage? </p>
+            <input type="radio" name="q4" value="a">a) True<br>
+            <input type="radio" name="q4" value="b">b) False<br>
+
+            <p>5) when checking out a unknown email link, its best to click it to see where it goes </p>
+            <input type="radio" name="q5" value="a">a) True<br>
+            <input type="radio" name="q5" value="b">b) False<br>
+            <br>
+            <br>
+            <hr>
+
+            <button onclick="gradeQuiz()">Click to see grade below</button>
+
+
+
+            <p id="quizGrade"></p>
+
+            <script>
+                function gradeQuiz() {
+                    let score = 0;
+                    let q1 = document.getElementsByName("q1"); //Gets the value of the users answer based on the name of the question. 
+                    let q2 = document.getElementsByName("q2"); //Gets the value of the users answer based on the name of the question.
+                    let q3 = document.getElementsByName("q3");//Gets the value of the users answer based on the name of the question.
+                    let q4 = document.getElementsByName("q4");//Gets the value of the users answer based on the name of the question.
+                    let q5 = document.getElementsByName("q5");//Gets the value of the users answer based on the name of the question.
+
+
+                    // Check answer to question 1
+                    for (let i = 0; i < q1.length; i++) { // sets the 
+                        if (q1[i].checked && q1[i].value === "a") {
+                            score++;
+                            break;
+                        }
+                    }
+
+                    // Check answer to question 2
+                    for (let i = 0; i < q2.length; i++) {
+                        if (q2[i].checked && q2[i].value === "c") {
+                            score++;
+                            break;
+                        }
+                    }
+
+                    // Check answer to question 3
+                    for (let i = 0; i < q3.length; i++) {
+                        if (q3[i].checked && q3[i].value === "a") {
+                            score++;
+                            break;
+                        }
+                    }
+
+
+                    // Check answer to question 4
+                    for (let i = 0; i < q4.length; i++) {
+                        if (q4[i].checked && q4[i].value === "a") {
+                            score++;
+                            break;
+                        }
+                    }
+
+                    // Check answer to question 5
+                    for (let i = 0; i < q5.length; i++) {
+                        if (q5[i].checked && q5[i].value === "b") {//Checks to see if the value of b was picked
+                            score++;// if the value of b was picked, then the score is incremented. 
+                            break;
+                        }
+                    }
+
+
+                    let quizGrade = document.getElementById("quizGrade");
+
+                    if (score === 5) {
+                        quizGrade.innerHTML = "You got 5 out of 5 correct! You have some solid Cyber Security knowledge!";
+
+                    }
+                    if (score === 4) {
+                        quizGrade.innerHTML = "Hey 4 out of 5 is not bad at all, but why not take the quiz agin to do better?"
+
+                    }
+                    if (score === 3) {
+                        quizGrade.innerHTML = "3 out of 5? I think you can do better, come on now try again!"
+                    }
+                    if (score === 2) {
+                        quizGrade.innerHTML = "2 out of 5? I think you can do better, perhaps go do some research and try again."
+                    }
+                    if (score === 1) {
+                        quizGrade.innerHTML = "1 out of 5? don't worry, you can try to fix your answers take your time."
+                    }
+                    if (score === 0) {
+                        quizGrade.innerHTML = "0 out of 5? Hey taking the quiz is a start, is it not fun that you know there is still more to learn out there?"
+                    }
+                }
+
+            </script>
+
+
+        </div> <!--This is the end of the first quiz box class-->
+
+</body>
+
+</html>
